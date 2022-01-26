@@ -1,0 +1,88 @@
+.work {
+    padding-top: 145px;
+    padding-bottom: 50px;
+    &-list {
+        display: flex;
+        justify-content: space-between;
+    }
+    &-item {
+        width: calc(33.33% - 46.67px);
+        padding: 40px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        line-height: 1.4;
+        transition: all 0.2s linear;
+    }
+    &-more {
+        transition: all 0.2s linear;
+    }
+    &-image {
+        margin-bottom: 35px;
+        max-height: 115px;
+    }
+    &-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+    &-desc {
+        font-weight: 300;
+        margin-bottom: 35px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        height: 100%;
+        word-break: break-word;
+    }
+    @media screen and (max-width:1023px) {
+        padding: 60px;
+        &-list {
+            display: grid;
+            justify-content: flex-start;
+            grid-auto-columns: 60%;
+            grid-auto-flow: column;
+            grid-gap: 1.5rem;
+            overflow: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-snap-stop: always;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            -webkit-overflow-scrolling: touch;
+            scroll-padding: 1rem;
+            grid-template-columns: unset;
+            &::-webkit-scrollbar {
+                display: none;
+                width: 0;
+            }
+            &>* {
+                scroll-snap-align: start;
+            }
+        }
+    }
+    &-item {
+        width: 100%;
+    }
+    @media (hover:hover) {
+        &-item:hover {
+            border-color: transparent;
+            box-shadow: 0 0 20px 5px rgba(black, 0.09);
+        }
+        &-item:hover .work-more {
+            border-color: $primary-color;
+            background-color: $primary-color;
+            color: white;
+        }
+    }
+    @media screen and (max-width: 479px) {
+        &-list {
+            grid-auto-columns: 70%;
+        }
+    }
+}
